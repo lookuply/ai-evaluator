@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock
 import pytest
 
 from ai_evaluator.ollama_client import OllamaClient
-from ai_evaluator.page_evaluator import EvaluationResult, PageEvaluator
+from ai_evaluator.page_evaluator import PageEvaluator
 
 
 @pytest.fixture
