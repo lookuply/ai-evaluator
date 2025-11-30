@@ -42,7 +42,12 @@ jobs:
         # Load and restart on server
         ssh $SERVER_USER@$SERVER_HOST << 'EOF'
           cd ~/lookuply/infrastructure
+          # Pull latest infrastructure changes (docker-compose.yml updates)
+          git pull origin main
+          # Load new Docker image
           docker load < /tmp/ai-evaluator.tar.gz
+          # Restart service with updated config
           docker compose up -d ai-evaluator
+          # Cleanup
           rm /tmp/ai-evaluator.tar.gz
         EOF
